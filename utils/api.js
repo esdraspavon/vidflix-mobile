@@ -11,5 +11,12 @@ class Api {
     const {data} = await query.json();
     return data.movies;
   }
+  async searchMovie(title) {
+    const query = await fetch(
+      `${BASE_API}list_movies.json?query_term=${title}&limit=1&sort_by=rating`,
+    );
+    const {data} = await query.json();
+    return data.movies;
+  }
 }
 export default new Api();

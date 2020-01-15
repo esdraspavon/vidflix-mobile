@@ -17,8 +17,18 @@ export default props => {
   const keyExtractor = item => item.id.toString();
   const renderEmpty = () => <Empty text="No hay sugerencias" />;
   const itemSeparator = () => <Separator />;
+  const viewMovie = item => {
+    videosDispatch({type: 'SET_SELECTED_MOVIE', payload: {movie: item}});
+  };
   const renderItem = ({item}) => {
-    return <Suggestion {...item}></Suggestion>;
+    return (
+      <Suggestion
+        {...item}
+        onPress={() => {
+          viewMovie(item);
+        }}
+      />
+    );
   };
 
   return (

@@ -15,7 +15,6 @@ export default props => {
     });
     // videosDispatch({type: 'SET_CATEGORY_LIST', payload: CategoryList});
   }, []);
-  console.log(videos);
   const keyExtractor = item => item.id.toString();
   const renderEmpty = () => <Empty text="No hay sugerencias" />;
   const itemSeparator = () => <Separator />;
